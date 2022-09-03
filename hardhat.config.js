@@ -1,6 +1,7 @@
 /* hardhat.config.js */
+const fs = require("fs");
+const privateKey = fs.readFileSync(".env").toString();
 require("@nomiclabs/hardhat-waffle")
-
 module.exports = {
   defaultNetwork: "hardhat",
   networks: {
@@ -9,7 +10,7 @@ module.exports = {
     },
  mumbai: {  
    url: "https://polygon-mumbai.g.alchemy.com/v2/wVQ2CVr2bH63W1XTyGtXTwfU8b5sGHDQ",
-   accounts: [process.env.privateKey]
+   accounts: [privateKey]
  }
   },
   solidity: {
